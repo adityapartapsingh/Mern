@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display:flex;
+             justify-content: center;
+             align-items: center;
+             height:100vh;
+             margin:0;
+
+        }
+        .container{
+            text-align: center;
+            padding:2rem;
+            border-radius: 12px;
+            box-shadow:0 4px 12px grey;
+            
+            
+        }
+        #count{
+            font-size: 3rem;
+            margin: 1rem 0;
+        }
+        .buttons button{
+            padding: 0.5rem 1.5rem;
+            margin: 0.5rem;
+            font-size: 1rem;
+            border:none;
+            border-radius: 6px;
+            background: rgb(71, 71, 255);
+            cursor: pointer;
+            color:white;
+        }
+
+        .buttons button:hover{
+            background: #3f05be;
+        }
+        #decrease:disabled,#reset:disabled{
+            background: grey;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Counter</h1>
+        <h2 id="count">0</h2>
+        <div class="buttons">
+            <button id="increase">Increment</button>
+            <button id="decrease">Decrement</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    let count=0;
+
+    const countDisplay=document.getElementById('count');
+    const incrementButton=document.getElementById('increase');
+    const decrementButton=document.getElementById('decrease');
+    const resetButton=document.getElementById('reset');
+
+    decrementButton.disabled=true;
+    resetButton.disabled=true;
+
+    function increaseCounter(){
+        count++;
+        decrementButton.disabled=false;
+        resetButton.disabled=false;
+        countDisplay.innerHTML=count;
+    }
+    function decreaseCounter(){
+        if(count!=0){
+            count--;
+        }
+        if(count===0){
+        decrementButton.disabled=true;
+        resetButton.disabled=true;
+        }
+        countDisplay.innerHTML=count;
+    }
+    function resetCount(){
+        count=0;
+        decrementButton.disabled=true;
+        resetButton.disabled=true;
+        countDisplay.innerHTML=count;
+    }
+   
+    
+    incrementButton.addEventListener('click',increaseCounter);
+    decrementButton.addEventListener('click',decreaseCounter);
+    resetButton.addEventListener('click',resetCount);
+</script>
+
+</html>
