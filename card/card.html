@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #232526, #414345);
+        }
+        .container{
+            width:400px;
+            height:600px;
+            background:white;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .profile-box{
+            background: #000000;
+            height:25vh;
+            background-color: #0077b5;
+            display: flex;
+            justify-content: center;
+            
+        }
+        .img{
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            border: 8px solid #0077b5;
+            position: relative;
+            top: 50%;
+        }
+       .content-box{
+        margin:45px;
+       }
+       h1{
+         text-align: center;
+      font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+       }
+       p{
+        font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: justify;
+       }
+    .btn {
+      border: none;
+      background-color: #0077b5;
+      color: aliceblue;
+      height: 30px;
+      width: 90px;
+      border-radius: 32px;
+      /* margin-left: 40%;
+      margin-top: 20px; */
+    }
+     .icons {
+      display: flex;
+      justify-content: center;
+    }
+    .icons a{
+        margin: 10px;
+        padding: 5px;
+    }
+    .message{
+        display: flex;
+        justify-content: center;
+    }
+    .container:hover{
+       box-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #1e90ff, 0 0 40px #1e90ff;
+       transform: scale(1.05);
+    }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-box">
+            <img class="img" src="https://media.licdn.com/dms/image/v2/D5603AQHebBBOVdKwVw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1728144174035?e=1756339200&v=beta&t=5Di0cZ9p-huUUC19Q9kYgVyPOF4_vFNBTrIszeFCua8" alt="">
+        </div>
+        <div class="content-box">
+            <div>
+                <h1>Aditya Partap Singh</h1>
+                <p>I’m a 3rd-year Computer Science student with a strong passion for Data Science, Machine Learning, and Algorithms. Currently, I’m diving deep into Data Science, working with Python, NumPy, Pandas, Matplotlib, and Machine Learning algorithms to analyze data and extract insights.</p>
+            </div >
+            <div class="icons">
+                <a  href="https://www.linkedin.com/in/adityapartapsingh/">
+                    <span style="font-size: 32px; color: Dodgerblue;"><i class="fa-brands fa-linkedin"></i></span>
+                </a>
+                <a  href="https://x.com/">
+                    <span style="font-size: 32px; color: black;"><i class="fa-brands fa-x-twitter"></i></span>
+                </a>
+                <a  href="https://github.com/adityapartapsingh">
+                    <span style="font-size: 32px; color: black;"><i class="fa-brands fa-github"></i></span>
+                </a>
+            </div>
+            <div class="message">
+                <a href="mailto:adityapartapsingh92@gmail.com">
+                <button class="btn">Message</button>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
