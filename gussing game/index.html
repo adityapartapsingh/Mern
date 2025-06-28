@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess My Number</title>
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="flex justify-center items-center  h-screen bg-gray-100">
+    <div class="bg-gray-100">
+        <div class="bg-white p-8 rounded-lg shadow-md w-50vw">
+            <h2 class="text-2xl font-bold mb-6 text-center">Guess My Number</h2>
+            <form id="guessForm" class="space-y-4">
+                <label for="set-target">Set Target:</label>
+               <div class="flex  justify-between items-center mt-2">
+                    <input type="number"  id="lower-range" value="0" class=" mr-2 w-32 p-2 border border-gray-300 rounded" placeholder="Lower Range" required>
+                    <input type="number" id="upper-range" value="100" class="mr-2 w-32 p-2 border border-gray-300 rounded " placeholder="Upper Range" required>
+                    <button type="button" id="set-target" class="w-32 bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Set Range</button>
+               </div>
+                <label for="guess" class="block text-gray-700">Enter your guess:</label>
+                <input type="number" id="guess" class="w-full p-2 border border-gray-300 rounded" required>
+                <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Submit Guess</button>
+            </form>
+            <div id="message" class="mt-4 text-center"></div>
+        </div>
+
+    </div>
+</body>
+
+<script>
+    let targetedNumber = {
+        lower: 0,
+        upper: 100,
+        target: Math.floor(Math.random() * 101)
+    };
+    function setTargetRange() {
+        const lower = document.getElementById('lower-range').value;
+        const upper = document.getElementById('upper-range').value;
+        if (lower >= upper) {
+            showMessage('Please enter a valid range.', true);
+            return;
+        }
+        targetedNumber.lower = lower;
+        targetedNumber.upper = upper;
+        targetedNumber.target = Math.floor(Math.random() * (upper - lower )+ lower);
+        console.log(targetedNumber.target);
+        attempts = 0;
+        showMessage(`Range set! Guess a number between ${lower} and ${upper}.`, false);
+    }
+
+    function showMessage(msg, isError) {
+        const messageDiv = document.getElementById('message');
+        messageDiv.textContent = msg;
+        messageDiv.className += ` ${isError ? 'text-red-500' : 'text-green-600'}`;
+    }
+
+    document.getElementById('set-target').addEventListener('click', setTargetRange);
+
+    document.getElementById('guessForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const guess = document.getElementById('guess').value;
+        attempts++;
+        if (guess < targetedNumber.lower || guess > targetedNumber.upper) {
+            showMessage(`Please guess within the range ${targetedNumber.lower} - ${targetedNumber.upper}.`, true);
+        } else if (guess < targetedNumber.target) {
+            showMessage('Too low! Try again.', true);
+        } else if (guess > targetedNumber.target) {
+            showMessage('Too high! Try again.', true);
+        } else {
+            showMessage(`Congratulations! You guessed it in ${attempts} attempts.`, false);
+        }
+        document.getElementById('guess').value = '';
+    });
+    let attempts = 0;
+
+
+
+</script>
+
+</html>
