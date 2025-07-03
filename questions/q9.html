@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Navigation</title>
+  <script>
+    window.onload = function() {
+      const message = document.getElementById("message");
+
+      // Log the parent node of #message
+      console.log("Parent Node of #message:", message.parentNode);
+
+      // Log all child nodes of the #container div
+      const container = document.getElementById("container");
+      console.log("Child Nodes of #container:", container.childNodes);
+
+      // Log the next sibling of the #message element
+      console.log("Next Sibling of #message:", message.nextSibling);
+    };
+  </script>
+</head>
+<body>
+  <div id="container">
+    <h2 id="message">Hello from the DOM!</h2>
+    <p>This is the next sibling paragraph.</p>
+  </div>
+</body>
+</html>
