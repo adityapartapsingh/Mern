@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Show Input Text</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #34495e;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    function showInput() {
+      const userInput = document.getElementById("userInput").value;
+      document.getElementById("output").textContent = userInput;
+    }
+  </script>
+</head>
+<body>
+  <h1>Display User Input</h1>
+
+  <input type="text" id="userInput" placeholder="Type something here">
+  <button onclick="showInput()">Show Text</button>
+
+  <p id="output"></p>
+</body>
+</html>
