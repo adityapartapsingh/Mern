@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom To-Do List</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .todo-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: calc(100% - 22px);
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 15px;
+    }
+
+    li {
+      background: #e8f0fe;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .todo-id {
+      font-size: 12px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="todo-container">
+    <h2>📝 To-Do List</h2>
+
+    <input type="text" id="itemInput" placeholder="Enter task...">
+    <button onclick="addItem()">Add Task</button>
+
+    <input type="text" id="removeIdInput" placeholder="Enter ID to remove">
+    <button onclick="removeItemById()">Remove Task by ID</button>
+
+    <ul id="todoList"></ul>
+  </div>
+
+  <script>
+    let idCounter = 1;
+
+    function addItem() {
+      const input = document.getElementById("itemInput");
+      const taskText = input.value.trim();
+      if (!taskText) {
+        alert("Please enter a task.");
+        return;
+      }
+
+      const uniqueId = "task-" + idCounter++;
+      const li = document.createElement("li");
+      li.id = uniqueId;
+
+      const spanText = document.createElement("span");
+      spanText.textContent = taskText;
+
+      const spanId = document.createElement("span");
+      spanId.className = "todo-id";
+      spanId.textContent = "#" + uniqueId;
+
+      li.appendChild(spanText);
+      li.appendChild(spanId);
+
+      document.getElementById("todoList").appendChild(li);
+      input.value = "";
+    }
+
+    function removeItemById() {
+      const idInput = document.getElementById("removeIdInput");
+      const id = idInput.value.trim();
+
+      if (!id) {
+        alert("Please enter an ID.");
+        return;
+      }
+
+      const item = document.getElementById(id);
+      if (item) {
+        item.remove();
+        idInput.value = "";
+      } else {
+        alert("No task found with ID: " + id);
+      }
+    }
+  </script>
+
+</body>
+</html>
