@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .responsive-box {
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 1.2rem;
+      text-align: center;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 600px) {
+      .responsive-box {
+        width: 90%;
+        font-size: 1rem;
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .responsive-box {
+        width: 95%;
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="responsive-box">
+    I scale based on screen size!
+  </div>
+
+</body>
+</html>
