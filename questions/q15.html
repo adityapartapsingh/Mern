@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Font Size</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 18px; /* Default font size */
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1em;
+    }
+
+    /* ✅ Media Query: Smaller font sizes for screens under 600px */
+    @media (max-width: 600px) {
+      body {
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      p {
+        font-size: 0.95em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Responsive Typography</h1>
+  <p>This text will scale down on smaller screens using a media query.</p>
+
+</body>
+</html>
